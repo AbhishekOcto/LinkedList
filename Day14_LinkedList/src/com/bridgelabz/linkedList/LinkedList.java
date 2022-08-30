@@ -2,39 +2,30 @@ package com.bridgelabz.linkedList;
 
 public class LinkedList {
     Node head;
+    Node tail;
 
-    class Node{ // created a class node
-        int data;
-        Node next;
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
-    public void addFirst(int data) {
-        //checking corner case
-
+    public Node  push(int data) {
         Node newNode = new Node(data);
-        if(head == null) {
-            head = newNode;
-            return;
-
-        }
-        newNode.next = head;
-        head = newNode;
-    }
-    //creating print method
-    public void printlist() {
-
         if (head == null) {
-            System.out.println("list is empty");
-            return;
+            head = newNode;
+            //  tail = newNode;
+        } else {
+            Node temp = head;// 56=>30=>70
+            this.head = newNode;
+            newNode.next = temp;
         }
-        Node currNode = head;
-        while (currNode != null) {
-            System.out.print(currNode.data+ "-->");
-            currNode = currNode.next;
+        return newNode;
+    }
+
+    public void print() {
+        if (head == null) {
+            System.out.println("Linked List is Empty");
+        } else {
+            Node temp = head;
+            while (temp != null) {
+                System.out.print(temp.data+ " ");
+                temp = temp.next;
+            }
         }
-        System.out.println("Null");
     }
 }
