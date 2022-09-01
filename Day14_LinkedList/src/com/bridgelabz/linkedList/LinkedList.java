@@ -8,7 +8,7 @@ public class LinkedList {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            //  tail = newNode;
+            tail = newNode;
         } else {
             Node temp = head;// 56=>30=>70
             this.head = newNode;
